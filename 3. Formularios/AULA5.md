@@ -1,180 +1,128 @@
-# Aula 5: Estilizando Formulários com CSS
+# Aula 5: Formulários em HTML
 
 ## Introdução
 
-Nesta aula, você aprenderá como usar CSS para melhorar a aparência e a usabilidade de formulários em suas páginas HTML. Estilizar formulários é essencial para proporcionar uma experiência de usuário agradável e profissional.
+Nesta aula, você aprenderá como criar e utilizar formulários em HTML. Formulários são essenciais para interagir com os usuários e coletar informações, permitindo o envio de dados para processamento. Veremos as principais tags e atributos que compõem os formulários.
 
-## Aplicando Estilos Básicos
+## Estrutura de um Formulário
 
-Você pode aplicar estilos diretamente aos elementos de formulário, como campos de texto, áreas de texto, botões, etc., utilizando seletores do CSS.
+A tag `<form>` é utilizada para definir o início e o fim de um formulário. Dentro dela, colocamos os campos para coleta de dados, como `<input>`, `<textarea>`, e `<button>`.
 
-### Exemplo de Estilo Básico
-
-```html
-<style>
-    input, textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-    }
-
-    button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    button:hover {
-        background-color: #45a049;
-    }
-</style>
-```
-Esse código aplica estilos consistentes aos campos de entrada, áreas de texto e botões.
-
----
-
-## Estilos para Campos de Formulário
-
-Você pode definir diferentes estilos para cada tipo de campo de formulário, como campos de texto, e-mails, e áreas de texto.
-
-### Exemplo: Estilos Diferenciados para Campos de Texto e Áreas de Texto
+### Estrutura Básica de um Formulário
 
 ```html
-<style>
-    input[type="text"], input[type="email"], textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 2px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-    }
-
-    input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-        border-color: #4CAF50;
-        outline: none;
-    }
-</style>
-```
-
-- **`input[type="text"]`**: Aplica estilo aos campos de texto.
-- **`input`**: Aplica estilo quando o campo está em foco (quando o usuário clica no campo).
-
-
----
-
-## Estilos para Botões
-
-Os botões são uma parte fundamental dos formulários, e sua estilização pode melhorar a experiência de interação.
-
-### Exemplo de Estilo para Botões
-
-```html
-<style>
-    button {
-        background-color: #008CBA;
-        color: white;
-        padding: 15px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    button:hover {
-        background-color: #006f9b;
-    }
-
-    button:active {
-        background-color: #005f8a;
-    }
-</style>
-```
-
-- **`button:hover`**: Aplica um efeito ao passar o mouse sobre o botão.
-- **`button:active`**: Aplica um estilo quando o botão é clicado.
-
-
----
-
-## Estilizando o Placeholder
-
-O placeholder é o texto de exemplo que aparece dentro dos campos de formulário antes do usuário inserir os dados. Você pode personalizar a aparência desse texto.
-
-### Exemplo de Estilo para Placeholder
-
-```html
-<style>
-    ::placeholder {
-        color: #888;
-        font-style: italic;
-    }
-
-    input:focus::placeholder {
-        color: #ccc;
-    }
-</style>
-```
-
-Esse estilo define uma cor cinza e itálico para o placeholder e muda sua cor quando o campo está em foco.
-
----
-
-## Layout Flexível com CSS Grid e Flexbox
-
-CSS Grid e Flexbox são duas ferramentas poderosas para criar layouts responsivos e organizados para formulários.
-
-### Exemplo de Formulário com CSS Grid
-
-```html
-<style>
-    form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-
-    label, input, textarea {
-        width: 100%;
-    }
-
-    .full-width {
-        grid-column: span 2;
-    }
-</style>
-
-<form>
+<form action="URL_destino" method="POST">
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome">
-
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" name="email">
-
-    <label for="mensagem" class="full-width">Mensagem:</label>
-    <textarea id="mensagem" name="mensagem" class="full-width"></textarea>
-
-    <button type="submit" class="full-width">Enviar</button>
+    <button type="submit">Enviar</button>
 </form>
 ```
-Esse exemplo cria um layout de formulário com duas colunas, usando CSS Grid.
 
+### Atributos Principais do (`<form>`)
+
+- **action**: Define o URL para onde os dados do formulário serão enviados.
+- **method**: Define o método HTTP de envio. Comumente usado: POST ou GET.
+
+---
+
+## Tipos de Campos de Formulário
+
+O HTML oferece diversos tipos de campos para coleta de dados. Vamos explorar alguns dos principais:
+
+- **Textual**:
+    - `<input type="text">`: Campo de texto padrão.
+    - `<textarea>`: Área de texto para inserção de múltiplas linhas.
+
+- **Seleção**:
+    - `<input type="radio">`: Botão de seleção única.
+    - `<input type="checkbox">`: Caixa de seleção múltipla.
+    - `<select>` e `<option>`: Menu suspenso.
+
+- **Outros Tipos**:
+    - `<input type="email">`: Campo de e-mail.
+    - `<input type="password">`: Campo de senha.
+    - `<input type="submit">`: Botão de envio.
+
+### Exemplo de Formulário com Vários Tipos de Campos
+
+```html
+<form action="URL_destino" method="POST">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome"><br><br>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem"></textarea><br><br>
+
+    <label for="sexo">Sexo:</label><br>
+    <input type="radio" id="masculino" name="sexo" value="masculino"> Masculino<br>
+    <input type="radio" id="feminino" name="sexo" value="feminino"> Feminino<br><br>
+
+    <label for="interesses">Interesses:</label><br>
+    <input type="checkbox" id="esportes" name="interesses" value="esportes"> Esportes<br>
+    <input type="checkbox" id="musica" name="interesses" value="musica"> Música<br><br>
+
+    <button type="submit">Enviar</button>
+</form>
+```
+
+---
+
+## Atributos de Campos de Formulário
+
+Cada campo de formulário pode ter diferentes atributos para melhorar a funcionalidade e validação. Alguns dos atributos mais comuns incluem:
+
+- **required**: Campo obrigatório.
+- **placeholder**: Texto de exemplo que aparece dentro do campo.
+- **maxlength**: Limita o número de caracteres no campo.
+- **min** e **max**: Define limites numéricos ou de data.
+
+### Exemplo com Atributos
+
+```html
+<form action="URL_destino" method="POST">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required><br><br>
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade" min="18" max="100"><br><br>
+
+    <button type="submit">Enviar</button>
+</form>
+```
+
+---
+
+## Métodos de Envio: GET e POST
+
+Os formulários podem ser enviados utilizando dois métodos principais: **GET** e **POST**.
+
+- **GET**: Os dados são enviados como parâmetros na URL, e geralmente é usado para buscas ou envio de dados não sensíveis.
+  
+- **POST**: Os dados são enviados no corpo da requisição HTTP, tornando-o mais seguro para enviar informações sensíveis, como senhas.
+
+### Exemplo de Formulário usando GET
+
+```html
+<form action="/buscar" method="GET">
+    <label for="consulta">Buscar:</label>
+    <input type="text" id="consulta" name="consulta">
+    <button type="submit">Pesquisar</button>
+</form>
+```
 
 ---
 
 ## Exercício Prático
 
-1. Crie um formulário com os seguintes elementos:
-   - Campos de texto e e-mail.
-   - Uma área de texto.
+1. Crie um formulário HTML que inclua os seguintes campos:
+   - Nome (campo de texto).
+   - E-mail (campo de e-mail).
+   - Mensagem (área de texto).
+   - Opções de seleção (radio buttons e checkboxes).
    - Um botão de envio.
-   - Personalize a aparência do formulário usando CSS.
 
 ---
 
@@ -185,46 +133,32 @@ Esse exemplo cria um layout de formulário com duas colunas, usando CSS Grid.
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Formulário Estilizado</title>
-    <style>
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Formulário de Contato</title>
 </head>
 <body>
     <h1>Formulário de Contato</h1>
-    <form>
+    <form action="URL_destino" method="POST">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+        <input type="text" id="nome" name="nome" required><br><br>
 
         <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+        <input type="email" id="email" name="email" required><br><br>
 
         <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
+        <textarea id="mensagem" name="mensagem" required></textarea><br><br>
+
+        <label for="sexo">Sexo:</label><br>
+        <input type="radio" id="masculino" name="sexo" value="masculino"> Masculino<br>
+        <input type="radio" id="feminino" name="sexo" value="feminino"> Feminino<br><br>
+
+        <label for="interesses">Interesses:</label><br>
+        <input type="checkbox" id="esportes" name="interesses" value="esportes"> Esportes<br>
+        <input type="checkbox" id="musica" name="interesses" value="musica"> Música<br><br>
 
         <button type="submit">Enviar</button>
     </form>
 </body>
 </html>
 ```
+
+
