@@ -26,12 +26,12 @@ Todo documento HTML começa e termina com as tags `<html>`. Dentro desta estrutu
 ```
 ### Explicação das Tags
 
-**`<!DOCTYPE html>`**: Informa ao navegador que o documento está utilizando a versão HTML5.
-**`<html lang="pt-BR">`**: Inicia o documento HTML e define o idioma como português brasileiro.
-**`<head>`**: Contém metadados sobre a página, como título, codificação de caracteres e links para estilos.
-**`<meta charset="UTF-8">`**: Define a codificação de caracteres para UTF-8, suportando caracteres especiais.
-**`<title>`**: Define o título da página, que aparece na aba do navegador.
-**`<body>`**: Contém o conteúdo visível da página, como textos, imagens, links, etc.
+- **`<!DOCTYPE html>`**: Informa ao navegador que o documento está utilizando a versão HTML5.
+- **`<html lang="pt-BR">`**: Inicia o documento HTML e define o idioma como português brasileiro.
+- **`<head>`**: Contém metadados sobre a página, como título, codificação de caracteres e links para estilos.
+- **`<meta charset="UTF-8">`**: Define a codificação de caracteres para UTF-8, suportando caracteres especiais.
+- **`<title>`**: Define o título da página, que aparece na aba do navegador.
+- **`<body>`**: Contém o conteúdo visível da página, como textos, imagens, links, etc.
 
 ## Detalhamento dos Elementos
 
